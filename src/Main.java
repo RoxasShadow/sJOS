@@ -1,19 +1,22 @@
 /* Yo dawg, I heard you like os, so I put an os in your os so you can using an os while you using an os. */
 import java.io.File;
+import java.lang.reflect.*;
 
 public class Main {	
 	public static void main(String[] args) {
+		if(args.length == 0) {
+			String[] list = ModuleLoader.getModuleList();
+			for(int i=0, count=list.length; i<count; ++i)
+				System.out.println(list[i]);
+			System.exit(0);
+		}
+		if(!ModuleLoader.isJavaClass(new File("modules/"+args[0]+".class"))) {
+			System.out.println("The module is corrupted.");
+			System.exit(1);
+		}
 		try {
-			if(args.length == 0) {
-				String[] list = ModuleLoader.getModuleList();
-				for(String f : list)
-					System.out.println(f);
-				System.exit(0);
-			}
-			if(!ModuleLoader.isJavaClass(new File("modules/"+args[0]+".class")))
-				System.exit(0);
 			ModuleLoader m = new ModuleLoader(args[0]);
-			if(m.isMethod("name"))
+			if(m.isMethod("name")) // If exists
 				System.out.println("Name: "+m.getMethod("name").invoke(m.getClass()));
 			if(m.isMethod("version"))
 				System.out.println("Version: "+m.getMethod("version").invoke(m.getClass()));
@@ -22,13 +25,15 @@ public class Main {
 			if(m.isMethod("help"))
 				System.out.println("Help: "+m.getMethod("help").invoke(m.getClass()));
 			if(m.isMethod("output")) {
-				Class[] t = m.getMethod("output").getParameterTypes();
-				if(t.length == 0)
-					System.out.println("Output: "+m.getMethod("output").invoke(m.getClass()));
-				else
-					if(t.length == args.length-1)
-						for(int i=1, count=t.length; i<=count; ++i)
-							System.out.println("Output:\n"+m.getMethod("output").invoke(m.getClass(), args[i]));
+				Method[] mo = m.getModule().getDeclaredMethods(); // Methods list
+				for(Method ml:mo) // For each method
+					if(ml.getName().equals("output")) { // Selects output() and its overloads.
+						Class[] tp = ml.getParameterTypes(); // All output()'s params
+						if((tp.length == 0) && (args.length == 1)) // No params required
+							System.out.println("Output: "+ml.invoke(m.getClass()));
+						else if((tp.length > 0) && (args.length > 1)) // Params = String[] args without module name
+							System.out.println("Output: "+ml.invoke(m.getClass(), new Object[] { ModuleLoader.removeElement(args, 0) }));
+					}
 			}
 		}
 		catch(Exception e) {

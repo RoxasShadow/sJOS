@@ -3,6 +3,7 @@ import java.io.*;
 import java.net.URLClassLoader;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 class ModuleLoader {
 	private Class c;
@@ -32,6 +33,12 @@ class ModuleLoader {
 		}
 	}
 	
+	public static String[] removeElement(String[] array, int index) {
+		ArrayList<String> list = new ArrayList<String>(Arrays.asList(array));
+		list.remove(index);
+		return list.toArray(new String[array.length-1]);
+	}
+	
 	public static String[] getModuleList() {
 		File dir = new File("modules/");
 		File[] list = dir.listFiles();
@@ -39,7 +46,7 @@ class ModuleLoader {
 		for(int i=0, count=list.length; i<count; ++i) 
 			if(ModuleLoader.isJavaClass(list[i]))
 				moduleList.add(list[i].toString().replace("modules/", "").replace(".class", "")); // D:
-		return (String[])moduleList.toArray(new String[moduleList.size()]);
+		return moduleList.toArray(new String[moduleList.size()]);
 	}
 	
 	public Class getModule() {
