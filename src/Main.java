@@ -1,4 +1,4 @@
-/* Yo dawg, I heard you like os, so I put an os in your os so you can using an os while you using an os. */
+/* Yo dawg, I heard you like OS, so I put an OS in your OS so you can use an OS while you use an OS. */
 import java.io.File;
 import java.lang.reflect.*;
 
