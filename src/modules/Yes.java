@@ -13,35 +13,26 @@
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-import java.util.Calendar;
-import java.text.SimpleDateFormat;
-public class Date extends Module {
-	private static final String DATE_FORMAT = "E  d MMM yyyy, HH.mm.ss, z";
-	
+public class Yes extends Module {	
 	public static String getHelp() {
 		StringBuffer help = new StringBuffer("");
-		help.append("Usage: date [+FORMAT]\n");
-		help.append("Display the current time in the given FORMAT.\n\n");
-		help.append("FORMAT controls the output.  Interpreted sequences are:\n\n");
-		help.append("Check `Data and Time Patterns` in http://docs.oracle.com/javase/1.4.2/docs/api/java/text/SimpleDateFormat.html\n");
-		help.append("Default patterns is \""+DATE_FORMAT+"\".\n\n");
+		help.append("Usage: yes [STRING]...\n");
+		help.append("Repeatedly output a line with all specified STRING(s), or \"y\".\n\n");
 		help.append(makeBasicMenu());
 		return makeHelp(help);
 	}
 	
 	public static String getVersion() {
-		return makeVersion("date", "utils", "0.1", "Giovanni Capuano");
+		return makeVersion("yes", "utils", "0.1", "Giovanni Capuano");
 	}
 	
 	public static void output() {
-		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
-		System.out.println(sdf.format(cal.getTime()));
+		while(true)
+			System.out.println("y");
 	}
 	
 	public static void output(String[] input) {
-		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat(input[0]);
-		System.out.println(sdf.format(cal.getTime()));
+		while(true)
+			System.out.println(input[0]);
 	}
 }
