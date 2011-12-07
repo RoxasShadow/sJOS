@@ -3,6 +3,7 @@ Yo dawg, I heard you like OS, so I put an OS in your OS so you can use an OS whi
 
 -----------------------------
 How compile sJOS:
+
 	You need Apache ANT (install it with your package manager (like APT) or http://ant.apache.org/bindownload.cgi)
 	Go in sjos/ and compile with
 	```bash
