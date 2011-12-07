@@ -5,10 +5,7 @@ Yo dawg, I heard you like OS, so I put an OS in your OS so you can use an OS whi
 How compile sJOS:
 
 	You need Apache ANT (install it with your package manager (like APT) or http://ant.apache.org/bindownload.cgi)
-	Go in sjos/ and compile with
-	```bash
-	ant && ant compile`
-	```
+	Go in sjos/ and compile with `ant && ant compile`
 	You'll find the executable `sJOS.jar` in dist/
 	To clean, do `ant clean`
 	
@@ -17,10 +14,7 @@ How compile a module:
 
 	You need Apache ANT (install it with your package manager (like APT) or http://ant.apache.org/bindownload.cgi)	
 	Copy the module in modules/src/	
-	Go in modules/ and compile with
-	```bash
-	ant && ant compile`
-	```	
+	Go in modules/ and compile with `ant && ant compile`
 	Copy the folder modules/modules/ together at sJOS.jar
 	To clean, do `ant clean`
 	
