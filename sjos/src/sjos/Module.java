@@ -18,8 +18,7 @@ public class Module {
 	/* Help */
 	public static String makeHelp(String string) {
 		return string;
-	}
-	
+	}	
 	
 	/* Version */
 	public static String makeVersion(String name, String pkg, String version, String author) {

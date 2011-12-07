@@ -23,17 +23,33 @@ public class Date extends Module {
 		StringBuffer help = new StringBuffer("");
 		help.append("Usage: date [+FORMAT]\n");
 		help.append("Display the current time in the given FORMAT.\n\n");
-		help.append("FORMAT controls the output.  Interpreted sequences are:\n\n");
-		help.append("Check `Data and Time Patterns` in http://docs.oracle.com/javase/1.4.2/docs/api/java/text/SimpleDateFormat.html\n");
-		help.append("Default patterns is \"");
-		help.append(DATE_FORMAT);
-		help.append("\".\n\n");
 		help.append(makeBasicMenu());
+		help.append("\nFORMAT controls the output.  Interpreted sequences are:\n\n");
+		help.append(makeMenu("G", "era designator", ""));
+		help.append(makeMenu("y", "year", ""));
+		help.append(makeMenu("M", "month in year", ""));
+		help.append(makeMenu("w", "week in year", ""));
+		help.append(makeMenu("W", "week in month", ""));
+		help.append(makeMenu("D", "day in year", ""));
+		help.append(makeMenu("d", "day in month", ""));
+		help.append(makeMenu("F", "day of week in month", ""));
+		help.append(makeMenu("E", "day in week", ""));
+		help.append(makeMenu("a", "am/pm marker", ""));
+		help.append(makeMenu("H", "hour in day (0-23)", ""));
+		help.append(makeMenu("k", "hour in day (1-24)", ""));
+		help.append(makeMenu("K", "hour in am/pm (0-11)", ""));
+		help.append(makeMenu("h", "hour in am/pm (1-12)", ""));
+		help.append(makeMenu("m", "minute in hour", ""));
+		help.append(makeMenu("s", "second in minute", ""));
+		help.append(makeMenu("S", "millisecond", ""));
+		help.append(makeMenu("z", "time zone", ""));
+		help.append(makeMenu("Z", "time zone", ""));
+		help.delete(help.length()-2, help.length()); // Last \n
 		return makeHelp(help.toString());
 	}
 	
 	public static String getVersion() {
-		return makeVersion("date", "utils", "0.1", "Giovanni Capuano");
+		return makeVersion("date", "utils", "0.9", "Giovanni Capuano");
 	}
 	
 	public static void output() {
