@@ -13,27 +13,21 @@
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-import sjos.Module;
-public class Yes extends Module {	
-	public static String getHelp() {
-		StringBuilder help = new StringBuilder("");
-		help.append("Usage: yes [STRING]...\n");
-		help.append("Repeatedly output a line with all specified STRING(s), or \"y\".\n\n");
-		help.append(makeBasicMenu());
-		return makeHelp(help.toString());
+import javax.tools.JavaCompiler;
+import javax.tools.ToolProvider;
+public class ModuleCompiler {
+	public static int compile(String[] filename) {
+		return ToolProvider.getSystemJavaCompiler().run(null, null, null, filename);
 	}
 	
-	public static String getVersion() {
-		return makeVersion("yes", "utils", "1.0", "Giovanni Capuano");
-	}
-	
-	public static void output() {
-		while(true)
-			System.out.println("y");
-	}
-	
-	public static void output(String[] input) {
-		while(true)
-			System.out.println(input[0]);
+	public static void main(String[] args) {
+		int res = ModuleCompiler.compile(args);
+		if(res == 0)
+			System.out.println("Done.");
+		else {
+			System.out.print("Error ");
+			System.out.print(res);
+			System.out.println(".");
+		}
 	}
 }

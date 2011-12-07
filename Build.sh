@@ -1,8 +1,6 @@
 #!/bin/bash
 rm -r bin
-rm -r bin/modules
 mkdir bin
-mkdir bin/modules
 
 #sjos
 cd sjos
@@ -13,13 +11,11 @@ mv sJOS.jar ../../bin
 cd ../
 ant clean
 
-#modules
-cd ../modules
+#compiler
+cd compiler
 ant
 ant compile
-cd modules
-mv *.class ../../bin/modules
+cd dist
+mv ModuleCompiler.jar ../../bin
 cd ../
 ant clean
-
-echo "Done."

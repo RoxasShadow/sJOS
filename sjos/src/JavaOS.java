@@ -16,7 +16,7 @@
 /* Yo dawg, I heard you like OS, so I put an OS in your OS so you can use an OS while you use an OS. */
 import sjos.*;
 import java.lang.reflect.*;
-public class Main {	
+public class JavaOS {	
 	public static void main(String[] args) {
 		if(args.length == 0) {
 			String[] list = ModuleLoader.getModuleList();
