@@ -23,7 +23,7 @@ public class Cat extends Module {
 		help.append("Usage: cat [FILE]...\n");
 		help.append("Concatenate FILE(s), or standard input, to standard output.\n\n");
 		help.append(makeBasicMenu());
-		return makeHelp(help);
+		return makeHelp(help.toString());
 	}
 	
 	public static String getVersion() {

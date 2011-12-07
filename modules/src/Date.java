@@ -29,7 +29,7 @@ public class Date extends Module {
 		help.append(DATE_FORMAT);
 		help.append("\".\n\n");
 		help.append(makeBasicMenu());
-		return makeHelp(help);
+		return makeHelp(help.toString());
 	}
 	
 	public static String getVersion() {

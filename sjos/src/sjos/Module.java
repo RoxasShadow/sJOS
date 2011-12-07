@@ -19,9 +19,6 @@ public class Module {
 	public static String makeHelp(String string) {
 		return string;
 	}
-	public static String makeHelp(StringBuffer string) {
-		return string.toString();
-	}
 	
 	
 	/* Version */

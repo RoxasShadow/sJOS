@@ -20,7 +20,7 @@ public class Yes extends Module {
 		help.append("Usage: yes [STRING]...\n");
 		help.append("Repeatedly output a line with all specified STRING(s), or \"y\".\n\n");
 		help.append(makeBasicMenu());
-		return makeHelp(help);
+		return makeHelp(help.toString());
 	}
 	
 	public static String getVersion() {
