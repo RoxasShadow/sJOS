@@ -2,21 +2,16 @@ Yo dawg, I heard you like OS, so I put an OS in your OS so you can use an OS whi
 =============================
 
 Run Build.sh to compile ModuleCompiler and sJOS.
+
 You need Apache ANT (install it with your package manager (like APT) or http://ant.apache.org/bindownload.cgi).
 
 -----------------------------
 How compile a module:
 
-	```bash
-	java -jar ModuleCompiler.jar Cat.java Date.java Yes.java [...]
-	```
-	
+	`java -jar ModuleCompiler.jar Cat.java Date.java Yes.java [...]`
 	ModuleCompiler will generate a file .class for each module.
 	After, move them in a folder called `modules` in the same folder in which is contained sJOS.
-
-	```bash
-	java -jar sJOS.jar [+ModuleName]
-	```
+	`java -jar sJOS.jar [+ModuleName]`
 	
 -----------------------------
 Please, when you code a module:
