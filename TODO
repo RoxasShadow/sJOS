@@ -1,3 +1,1 @@
-Finisci il modulo Date;
-Switch per i - e -- con avviso di opzione non valida;
-Moduli.
+Cp: Se ricorsivamente copi la cartella X in una cartella Y, verranno copiati in Y solo i file contenuti in X e non la cartella X stessa.

@@ -38,7 +38,6 @@ public class Cat extends Module {
 	}
 		
 	public static void output(String[] input) {
-		StringBuffer output = new StringBuffer("");
 		for(String f:input) {
 			try {
 				File file = new File(f);
